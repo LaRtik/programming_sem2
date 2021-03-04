@@ -13,10 +13,15 @@ int checkInput(char buffer[])
     int i = 0;
     for (; buffer[i] != '\0'; i++)
     {
+        if (i > 7)
+        {
+            printf("Too big number! Try again!\n\n");
+            return 0;
+        }
         if (buffer[i] <= '9' && buffer[i] >= '0') continue;
         else
         {
-            printf("Incorrent input! Please, enter integer value. \n\n");
+            printf("Incorrent input! Please, enter integer (less than 9 digits) value. \n\n");
             return 0;
         }  
     }
