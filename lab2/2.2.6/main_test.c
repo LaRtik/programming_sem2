@@ -3,17 +3,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void test_FloatInput()
+void test_floatInput()
 {
-	assert(FloatInput("!") == 0);
-	assert(FloatInput("123") == 1);
-	assert(FloatInput("1") == 1);
-	assert(FloatInput("0") == 1);
-	assert(FloatInput("abdsa") == 0);
-	assert(FloatInput("10af") == 0);
-	assert(FloatInput("1486168416486518416.548447") == 0);
-	assert(FloatInput("0.01") == 1);
-	assert(FloatInput("-0.01") == 1);
+	assert(floatInput("!") == 0);
+	assert(floatInput("123") == 1);
+	assert(floatInput("1") == 1);
+	assert(floatInput("0") == 1);
+	assert(floatInput("abdsa") == 0);
+	assert(floatInput("10af") == 0);
+	assert(floatInput("1486168416486518416.548447") == 0);
+	assert(floatInput("0.01") == 1);
+	assert(floatInput("-0.01") == 1);
 }
 
 void test_postitiveIntInput()
@@ -39,9 +39,9 @@ void test_factorial()
 
 void test_calcRightEps()
 {
-	assert(abs(calcRightEps(1,1,3) - 1) <= 1e-5);
-	assert(abs(calcRightEps(3,2,1) + 1.5) <= 1e-5);
-	assert(abs(calcRightEps(5,5,2) - 0.089631) <= 1e-5);
+	assert(abs(calcRightEps(1,1,3,0) - 1) <= 1e-5);
+	assert(abs(calcRightEps(3,2,1,0) + 1.5) <= 1e-5);
+	assert(abs(calcRightEps(5,5,2,0) - 0.089631) <= 1e-5);
 }
 
 
@@ -49,7 +49,7 @@ void test_calcRightEps()
 
 int main()
 {
-	test_FloatInput();
+	test_floatInput();
 	test_postitiveIntInput();
 	test_factorial();
 	test_calcRightEps();

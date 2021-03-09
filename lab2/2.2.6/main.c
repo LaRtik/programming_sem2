@@ -3,7 +3,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-int nEps; /* | sin (X) - right | < EPSILON, when N = nEps */
 
 int factorial(int n)
 {
@@ -12,7 +11,7 @@ int factorial(int n)
     else return n * factorial(n-1);
 }
 
-float calcRightEps(float x, int n, float eps)
+float calcRightEps(float x, int n, float eps, int *nEps)
 {
 	int i;
 	float result = 0, right = 0;
@@ -21,7 +20,7 @@ float calcRightEps(float x, int n, float eps)
 		if (2 * i - 1 > 42) return result;
         right += pow(-1, (i-1)) * (pow(x, (2*i-1)) / factorial(2*i-1));
 		if (i == n) result = right;
-		if (abs(sin(x) - right) <= eps && nEps == 0) nEps = i;
+		if (abs(sin(x) - right) <= eps && *nEps == 0) *nEps = i;
 	}
 	return result;
 }
@@ -39,7 +38,7 @@ int positiveIntInput(char buffer[])
     return 1;
 }
 
-int FloatInput(char buffer[])
+int floatInput(char buffer[])
 {
 	int i;
 		
@@ -56,6 +55,7 @@ int main()
 {
     float x, eps;
     int n;
+	int nEps;
 	char buffer[128];
 
     printf("Enter N (positive integer):\n");
@@ -69,7 +69,7 @@ int main()
 
     printf("Enter X (real):\n");
 	scanf("%s", buffer);
-    while (FloatInput(buffer) == 0)
+    while (floatInput(buffer) == 0)
     {
 		printf("Incorrect input! Enter real number (<9 digits)!\n");
 		scanf("%s", buffer);
@@ -79,7 +79,7 @@ int main()
 
 	printf("Enter EPSILON (real):\n");
 	scanf("%s", buffer);
-    while (FloatInput(buffer) == 0)
+    while (floatInput(buffer) == 0)
     {
 		printf("Incorrect input! Enter real number (<9 digits)!\n");
 		scanf("%s", buffer);
@@ -87,7 +87,9 @@ int main()
 	eps = atof(buffer);
 	eps = abs(eps);
 
-    printf("left = %f, right = %f\n", sin(x), calcRightEps(x,n, eps));
+
+
+    printf("left = %f, right = %f\n", sin(x), calcRightEps(x,n, eps, &nEps));
 
 	printf("| sin (X) - right | < EPSILON, when N = %d\n", nEps);
 
