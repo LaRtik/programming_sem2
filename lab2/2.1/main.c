@@ -41,7 +41,7 @@ int positiveFloatInput(char buffer[])
 		if ((buffer[i]>'9' || buffer[i]<'0') && buffer[i]!='.') return 0;
 	}
 	result = atof(buffer); /* char* to float / double value */
-	if (abs(result) <= 1e-6 || result < 0) return 0;
+	if (result < 0) return 0;
     return 1;
 }
 
