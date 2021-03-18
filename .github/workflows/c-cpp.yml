@@ -20,7 +20,7 @@ jobs:
       working-directory: ./lab2/2.1
       run: make
     - name: make lab2 task2
-      working-directory: .lab2/2.2.6
+      working-directory: ./lab2/2.2.6
       run: make
     
     
