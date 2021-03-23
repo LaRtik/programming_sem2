@@ -157,8 +157,8 @@ int main()
 	/*
 	Clearing mem
 	*/
-	free(arr);
 	for (i = 0; i < n; i++)
 		free(arr[i]);
+	free(arr);
 	return 0;
 }
