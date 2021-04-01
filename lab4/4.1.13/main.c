@@ -59,7 +59,6 @@ void precalc(char (*nmb)[7][128])
 	strcpy(nmb[4][5], "четырьмя");
 	strcpy(nmb[4][6], "четырёх");
 
-
 	/* 5 - 20, 30 */
 	strcpy(nmb[5][1], "пят");
 	strcpy(nmb[6][1], "шест");
@@ -81,7 +80,8 @@ void precalc(char (*nmb)[7][128])
 
 	for (i = 5; i <= 30; i++)
 	{
-		if (i > 20 && i < 30) continue;
+		if (i > 20 && i < 30)
+			continue;
 		for (j = 2; j <= 6; j++)
 		{
 			strcpy(nmb[i][j], nmb[i][1]);
@@ -89,7 +89,8 @@ void precalc(char (*nmb)[7][128])
 	}
 	for (i = 5; i <= 30; i++)
 	{
-		if (i > 20 && i < 30) continue;
+		if (i > 20 && i < 30)
+			continue;
 		strcat(nmb[i][1], "ь");
 		strcat(nmb[i][2], "и");
 		strcat(nmb[i][3], "и");
@@ -232,6 +233,7 @@ char* calc(int n, int cs, char (*nmb)[7][128])
 	{
 		if (first == 0) return nmb[n][cs];
 		result = nmb[second * 10][cs];
+		strcat(result, " ");
 		strcat(result, nmb[first][cs]);
 		return result;
 	}
@@ -242,19 +244,23 @@ char* calc(int n, int cs, char (*nmb)[7][128])
 		if (first == 0)
 		{
 			result = nmb[third * 100][cs];
+			strcat(result, " ");
 			strcat(result, nmb[second * 10][cs]);
 			return result;
 		}
 		if (second == 0)
 		{
 			result = nmb[third * 100][cs];
+			strcat(result, " ");
 			strcat(result, nmb[first][cs]);
 			return result;
 		}
 		else
 		{
 			result = nmb[third * 100][cs];
+			strcat(result, " ");
 			strcat(result, nmb[second * 10][cs]);
+			strcat(result, " ");
 			strcat(result, nmb[first][cs]);
 			return result;
 		}
@@ -263,27 +269,26 @@ char* calc(int n, int cs, char (*nmb)[7][128])
 
 int main()
 {
-	/*Init variables begin */ 
-	int m;
+	/*Init variables begin */
 	int n;
 	char buffer[128];
 	char rusNumbers[1001][7][128];
 	int cs;
 	/* Init variables end */
-	system("chcp 1251");
-	system("cls");
+
 	setlocale(LC_ALL, "Rus");
-	printf("Всем привет!\n");
 	printf("Введите целое положительное N (<=1000):\n");
 	scanf("%s", buffer);
 	while (positiveIntInput(buffer, 1000) == 0)
 	{
 		printf("Неверный ввод! Введите целое положительное число (N <= 1000)!\n");
+		return 0;
 		scanf("%s", buffer);
 	}
 	n = atoi(buffer);
 
-	printf("Выберите падеж: \n1 - Именительный\n2 - Родительный\n3 - Дательный\n4 - Винительный\n5 - Творительный\n6 - Предложный\n");		scanf("%s", buffer);
+	printf("Выберите падеж: \n1 - Именительный\n2 - Родительный\n3 - Дательный\n4 - Винительный\n5 - Творительный\n6 - Предложный\n");
+	scanf("%s", buffer);
 	while (positiveIntInput(buffer, 6) == 0)
 	{
 		printf("Неверный ввод! Введите целое положительное число (<=6)!\n");
@@ -291,7 +296,6 @@ int main()
 	}
 	cs = atoi(buffer);
 	precalc(rusNumbers);
-
 	printf("%s\n", calc(n, cs, rusNumbers));
 	return 0;
 }
