@@ -34,7 +34,7 @@ int strSize(char string[])
 
 void intToStr(int number, char result[])
 {
-	char toAdd[1];
+	char toAdd[10];
 	while (number != 0)
 	{
 		sprintf(toAdd, "%d", number%10);
