@@ -31,6 +31,9 @@ jobs:
     - name: make lab4 task2
       working-directory: ./lab4/4.2.13
       run: make test
+    - name: make lab5
+      working-directory: ./lab5/5.1.1
+      run: make test
     
       
     
