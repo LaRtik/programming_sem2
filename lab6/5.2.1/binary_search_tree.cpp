@@ -51,6 +51,11 @@ std::ostream& operator<<(std::ostream &out, const BinarySearchTree &tree)
 
 const BinarySearchTree operator+(BinarySearchTree &lv, const BinarySearchTree &rv)
 {
+	/* TODO:
+	- make lv rv const
+	- return new tree, neither lv nor rv
+	- new tree must be copied from lv (create copy in tree class)
+	*/
 	std::vector <int> temp;
 	rv.get_value(rv.root, temp);
 	for (auto i:temp) lv.add(i, &lv.root);
