@@ -44,7 +44,7 @@ void test_files()
 	List* hotels = new List;
 	loadFile(hotels);
 	vector <HotelTracer::HotelInfo> temp = hotels->get();
-	assert(temp.size() == 1);
+	assert(temp.size() >= 1);
 	assert(temp[0].city == "Mogilev");
 	hotels->push(temp[0]);
 	outFile(hotels);
@@ -52,6 +52,8 @@ void test_files()
 	List* hotels2 = new List;
 	loadFile(hotels2);
 	temp = hotels2->get();
+	assert(temp.size() >= 2);
+	assert(temp[1].city == "Mogilev");
 }
 
 #undef main
