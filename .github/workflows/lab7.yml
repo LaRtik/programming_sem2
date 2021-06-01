@@ -15,7 +15,8 @@ jobs:
       - name: Build and test
         run: |
           cd lab7
-          make
+          make main_cov
+          ./test
           
       - name: Codecov
         run: cd lab7 && export CODECOV_TOKEN="6ba79214-6cbd-49ed-83af-af6ab2ab06b2" && bash <(curl -s https://codecov.io/bash)
