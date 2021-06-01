@@ -2,6 +2,7 @@
 #include <fstream>
 #include <locale>
 #include <vector>
+#include <assert.h>
 #include "list.h"
 
 
@@ -11,6 +12,7 @@ using namespace std;
 void loadFile(List* _list)
 {
 	ifstream in("hotels.txt");
+	assert(in.is_open() == true);
 	string temp;
 	while (getline(in, temp))
 	{
@@ -182,6 +184,7 @@ string query(string s, List* hotels)
 void outFile(List* _list)
 {
 	ofstream out("hotels.txt");
+	assert(out.is_open() == true);
 	// check open status
 	vector <HotelTracer::HotelInfo> temp = _list->get();
 	for (int i = 0; i < (int)temp.size(); i++)
