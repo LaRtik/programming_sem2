@@ -17,4 +17,4 @@ jobs:
         run: make main_cov
           
       - name: Codecov
-        run: curl -s https://codecov.io/bash | bash -s - -t token
+        run: curl -s https://codecov.io/bash | bash -s - -t token | export CODECOV_TOKEN="6ba79214-6cbd-49ed-83af-af6ab2ab06b2"
