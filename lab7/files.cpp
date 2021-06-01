@@ -1,0 +1,85 @@
+#include "files.h"
+
+
+void loadFile(List* _list)
+{
+	ifstream in("hotels.txt");
+	string temp;
+	while (getline(in, temp))
+	{
+		string temp2;
+		HotelTracer::HotelInfo info;
+		int i = 0;
+		while (temp[i] != ';')
+		{
+			temp2 += temp[i];
+			i++;
+		}
+		info.city = temp2;
+		i++;
+		temp2.clear();
+
+
+		while (temp[i] != ';')
+		{
+			temp2 += temp[i];
+			i++;
+		}
+		info.hotelName = temp2;
+		i++;
+		temp2.clear();
+
+
+		while (temp[i] != ';')
+		{
+			temp2 += temp[i];
+			i++;
+		}
+		info.hotelAdress = temp2;
+		i++;
+		temp2.clear();
+
+
+		while (temp[i] != ';')
+		{
+			temp2 += temp[i];
+			i++;
+		}
+		info.roomClass = temp2;
+		i++;
+		temp2.clear();
+
+
+		while (temp[i] != ';')
+		{
+			temp2 += temp[i];
+			i++;
+		}
+		info.placesRoom = stoi(temp2);
+		i++;
+		temp2.clear();
+
+
+		while (temp[i] != ';')
+		{
+			temp2 += temp[i];
+			i++;
+		}
+		info.cost = stod(temp2);
+		i++;
+		temp2.clear();
+
+
+		while (temp[i] != ';')
+		{
+			temp2 += temp[i];
+			i++;
+		}
+		info.reserved = stoi(temp2);
+		i++;
+		temp2.clear();
+
+		_list->push(info);
+	}
+	
+}

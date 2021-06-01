@@ -1,5 +1,6 @@
 #include "list.h"
 #include "HotelTracer.h"
+#include "files.h"
 #include <assert.h>
 
 void test_list_add()
@@ -36,6 +37,15 @@ void test_hotel_reserve_to_string()
 	assert(res.size() != 0);
 	res = temp.toMaxString();
 	assert(res.size() != 0);
+}
+
+void test_files()
+{
+	List* hotels = new List;
+	loadFile(hotels);
+	vector <HotelTracer::HotelInfo> temp = hotels->get();
+	assert(temp.size() == 1);
+	assert(temp[0].city == "Mogilev");
 }
 
 #undef main
