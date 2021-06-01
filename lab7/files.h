@@ -6,6 +6,7 @@
 
 
 void loadFile(List* _list);
+void outFile(List* _list);
 
 
 

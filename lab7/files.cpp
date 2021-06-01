@@ -81,5 +81,16 @@ void loadFile(List* _list)
 
 		_list->push(info);
 	}
-	
+	in.close();	
+}
+
+void outFile(List* _list)
+{
+	ofstream out("hotels.txt");
+	vector <HotelTracer::HotelInfo> temp = _list->get();
+	for (int i = 0; i < (int)temp.size(); i++)
+	{
+		out << temp[i].toString();
+	}
+	out.close();
 }

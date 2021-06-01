@@ -46,6 +46,12 @@ void test_files()
 	vector <HotelTracer::HotelInfo> temp = hotels->get();
 	assert(temp.size() == 1);
 	assert(temp[0].city == "Mogilev");
+	hotels->push(temp[0]);
+	outFile(hotels);
+	
+	List* hotels2 = new List;
+	loadFile(hotels2);
+	temp = hotels2->get();
 }
 
 #undef main
@@ -54,4 +60,5 @@ int main()
 	test_list_add();
 	test_hotel_reserve();
 	test_hotel_reserve_to_string();
+	test_files();
 }
