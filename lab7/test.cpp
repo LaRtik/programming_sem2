@@ -20,8 +20,18 @@ void test_list_add()
 	assert(disp[1].city == "Minsk");
 }
 
+void test_hotel_reserve()
+{
+	HotelTracer::HotelInfo temp;
+	HotelTracer::reserve(temp);
+	assert(temp.reserved == true);
+	HotelTracer::removeReserve(temp);
+	assert(temp.reserved == false);
+}
+
 #undef main
 int main()
 {
 	test_list_add();
+	test_hotel_reserve();
 }
