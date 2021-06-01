@@ -7,6 +7,7 @@ void stack_test_sort()
 	return;
 }
 
+#undef main
 int main()
 {
 	stack_test_sort();
