@@ -29,6 +29,17 @@ void test_hotel_reserve()
 	assert(temp->reserved == false);
 }
 
+void test_hotel_reserve_to_string()
+{
+	HotelTracer::HotelInfo temp;
+	string res = temp.toString();
+	assert(res.size() != 0);
+	res = temp.toMaxString();
+	assert(res.size() != 0);
+}
+
+
+
 #undef main
 int main()
 {
