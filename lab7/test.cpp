@@ -1,14 +1,20 @@
 #include "list.h"
+#include "HotelTracer.h"
 #include <assert.h>
 
-void stack_test_sort()
+void test_list_add()
 {
 	List temp;
-	return;
+	HotelTracer::HotelInfo temp2;
+	temp2.city = "Grodno";
+	temp.push(temp2);
+	assert(temp.size == 1);
+	vector <HotelTracer::HotelInfo> disp = temp.get();
+	assert(disp[0].city == "Grodno");
 }
 
 #undef main
 int main()
 {
-	stack_test_sort();
+	test_list_add();
 }
