@@ -51,8 +51,8 @@ namespace HotelTracer
 		}
 	};
 
-	void reserve(HotelInfo _a);
-	void removeReserve(HotelInfo _a);
+	void reserve(HotelInfo* _a);
+	void removeReserve(HotelInfo* _a);
 }
 
 #endif // HOTELTRACER_H

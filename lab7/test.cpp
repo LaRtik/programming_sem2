@@ -22,11 +22,11 @@ void test_list_add()
 
 void test_hotel_reserve()
 {
-	HotelTracer::HotelInfo temp;
+	HotelTracer::HotelInfo *temp = new HotelTracer::HotelInfo;
 	HotelTracer::reserve(temp);
-	assert(temp.reserved == true);
+	assert(temp->reserved == true);
 	HotelTracer::removeReserve(temp);
-	assert(temp.reserved == false);
+	assert(temp->reserved == false);
 }
 
 #undef main
