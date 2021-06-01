@@ -16,8 +16,8 @@ jobs:
     - uses: codecov/codecov-action@v1
     - name: make lab7
       working-directory: ./lab7/6.2.9
-      run: |
-        make
-        gcov main.cpp list.cpp HotelTracer.cpp -r
-        bash <(curl -s https://codecov.io/bash)
+      run: make
+    - name: Codecov
+      working-directory: ./lab7/6.2.9
+      run: curl -s https://codecov.io/bash | bash -s - -t token
      
