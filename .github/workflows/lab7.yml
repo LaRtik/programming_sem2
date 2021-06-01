@@ -1,21 +1,21 @@
-name: LAB7
+name: build-and-test
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+on: push
 
 jobs:
-  build:
-
+  buildandtest:
+    name: Build and test the program
+    
     runs-on: ubuntu-latest
-
+    
     steps:
-    - uses: actions/checkout@v2
-    - name: make lab7
-      working-directory: ./lab7/6.2.9/
-      run: make
-    - name: Codecov
-      run: cd lab7/6.2.9 && curl -s https://codecov.io/bash && bash -s - -t token
-     
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Build and test
+        run: |
+          cd lab7/6.2.9
+          make
+          
+      - name: Codecov
+        run: cd lab7/6.2.9 && export CODECOV_TOKEN='6ba79214-6cbd-49ed-83af-af6ab2ab06b2' && bash <(curl -s https://codecov.io/bash)
