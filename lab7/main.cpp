@@ -93,21 +93,10 @@ string query(string s, List* hotels)
 
 int main()
 {
-	//setlocale(LC_ALL, "rus");
-
 	cout << "Welcome to Hotel Tracer! (ver. 0.1.0)" << endl;
-
 	HotelTracer::HotelInfo temp;
-	/*temp.city = "Mogilev";
-	temp.cost = 228.1337;
-	temp.hotelAdress = "Lenina st. 28";
-	temp.hotelName = "Regina";
-	temp.placesRoom = 2;
-	temp.reserved = false;
-	temp.roomClass = "budget";*/
 	List *hotels = new List;
 	loadFile(hotels);
-	outFile(hotels);
 	while (true)
 	{
 		cout << "Enter your query:" << endl;
@@ -122,12 +111,6 @@ int main()
 			return 0;
 		}
 		cout << query(s, hotels) << endl << endl;
-	//	return 0;
 	}
-
-
-
-
-
 	return 0;
 }
