@@ -17,5 +17,5 @@ jobs:
       working-directory: ./lab7/6.2.9/
       run: make
     - name: Codecov
-      run: curl -s https://codecov.io/bash | bash -s - -t token
+      run: cd lab7/6.2.9 && curl -s https://codecov.io/bash && bash -s - -t token
      
