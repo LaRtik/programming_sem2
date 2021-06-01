@@ -6,4 +6,4 @@ main: main.cpp list.cpp HotelTracer.cpp
 
 
 main_cov: main.cpp list.cpp HotelTracer.cpp test.cpp
-	g++ main.cpp list.cpp HotelTracer.cpp test.cpp -Dmain=_main -fprofile-arcs -ftest-coverage -lgcov -g -o test 
+	g++ main.cpp list.cpp HotelTracer.cpp test.cpp -Dmain=codsfksofdsko -fprofile-arcs -ftest-coverage -lgcov -g -o test 
