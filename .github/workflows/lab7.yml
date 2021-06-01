@@ -1,0 +1,24 @@
+name: LAB7
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: codecov/codecov-action@v1
+    - name: make lab7
+      working-directory: ./lab7/6.2.9
+      run: |
+        make
+        ./main
+        gcov main.cpp list.cpp HotelTracer.cpp -r
+        bash <(curl -s https://codecov.io/bash)
+     
