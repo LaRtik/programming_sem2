@@ -38,11 +38,10 @@ void test_hotel_reserve_to_string()
 	assert(res.size() != 0);
 }
 
-
-
 #undef main
 int main()
 {
 	test_list_add();
 	test_hotel_reserve();
+	test_hotel_reserve_to_string();
 }
