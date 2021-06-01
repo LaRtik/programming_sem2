@@ -18,7 +18,6 @@ jobs:
       working-directory: ./lab7/6.2.9
       run: |
         make
-        ./main
         gcov main.cpp list.cpp HotelTracer.cpp -r
         bash <(curl -s https://codecov.io/bash)
      
