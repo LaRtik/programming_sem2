@@ -10,13 +10,6 @@
 
 using namespace std;
 
-int countCommas(string s)
-{
-	int ans = 0;
-	for (auto i : s) if (i == ',') ans++;
-	return ans;
-}
-
 vector <HotelTracer::HotelInfo> queryResult(string city, string nPersons, string roomClass, string price, List* hotels)
 {
 	vector <HotelTracer::HotelInfo> result;

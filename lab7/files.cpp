@@ -95,3 +95,11 @@ void outFile(List* _list)
 	}
 	out.close();
 }
+
+
+int countCommas(string s)
+{
+	int ans = 0;
+	for (auto i : s) if (i == ',') ans++;
+	return ans;
+}
