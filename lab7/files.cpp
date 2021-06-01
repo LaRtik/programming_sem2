@@ -91,6 +91,7 @@ void outFile(List* _list)
 	for (int i = 0; i < (int)temp.size(); i++)
 	{
 		out << temp[i].toString();
+		out << "\n";
 	}
 	out.close();
 }
