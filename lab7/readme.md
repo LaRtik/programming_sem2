@@ -2,7 +2,7 @@
 
 ### HotelTracer
 
-HotelTracer ищет наилучший отель, соответствующий запросу пользователя. Форма запроса
+HotelTracer ищет наилучший отель, соответствующий запросу пользователя. Формат запроса:
 - City, number of persons, class of room (budget, standart, luxe), price (min / max or value);
 
 Пример запроса:
